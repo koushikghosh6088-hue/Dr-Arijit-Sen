@@ -51,7 +51,7 @@ function App() {
         />
       )}
 
-      <main>
+      <main className="relative">
         <div id="home">
           <Hero />
         </div>

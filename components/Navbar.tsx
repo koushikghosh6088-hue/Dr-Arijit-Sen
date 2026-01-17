@@ -48,26 +48,28 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
     e.preventDefault();
     setIsOpen(false);
 
-    if (href === '#/') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
+    // Give the menu a moment to start closing before jumping
+    setTimeout(() => {
+      if (href === '#/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
 
-    const targetId = href.replace('#', '');
-    const element = document.getElementById(targetId);
+      const targetId = href.replace('#', '');
+      const element = document.getElementById(targetId);
 
-    if (element) {
-      const offset = 90;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+      if (element) {
+        const offset = 80;
+        const elementTop = element.getBoundingClientRect().top;
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+        const targetTop = currentScroll + elementTop - offset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
+        window.scrollTo({
+          top: targetTop,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
   };
 
   return (
@@ -75,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled
         ? 'py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-white/20 dark:border-slate-800 shadow-[0_8px_32px_rgba(0,0,0,0.05)]'
         : 'py-4 sm:py-6 bg-transparent'
         }`}
@@ -183,13 +185,13 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
           <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-xl transition-all duration-500 ${scrolled ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' : 'bg-white/10 text-white'}`}
+              className={`p-2 rounded-xl transition-all duration-500 active:scale-95 touch-manipulation ${scrolled ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' : 'bg-white/10 text-white'}`}
             >
               {isDark ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2.5 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl transition-all shadow-sm ${scrolled ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'bg-white/20 text-white'}`}
+              className={`p-2.5 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl transition-all shadow-sm active:scale-95 touch-manipulation ${scrolled ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'bg-white/20 text-white'}`}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

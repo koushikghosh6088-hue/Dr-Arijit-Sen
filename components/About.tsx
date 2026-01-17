@@ -2,7 +2,7 @@
 import React, { useState, useRef } from 'react';
 import { Clock, Phone, Send, Video, ArrowRight, Heart } from 'lucide-react';
 import VideoCallModal from './VideoCallModal';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 
 const About: React.FC = () => {
   const [showVideoCallModal, setShowVideoCallModal] = useState(false);
@@ -131,9 +131,11 @@ const About: React.FC = () => {
       </div>
 
       {/* Video Call Modal */}
-      {showVideoCallModal && (
-        <VideoCallModal onClose={() => setShowVideoCallModal(false)} />
-      )}
+      <AnimatePresence>
+        {showVideoCallModal && (
+          <VideoCallModal onClose={() => setShowVideoCallModal(false)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 };
