@@ -26,10 +26,10 @@ const Services: React.FC = () => {
             <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider uppercase">EXPERT MEDICAL SERVICES</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+          <h2 className="text-3xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
             Specialized Care for Your Health
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Comprehensive treatment plans tailored to your unique health needs
           </p>
         </motion.div>

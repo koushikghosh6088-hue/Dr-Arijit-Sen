@@ -85,16 +85,16 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
           {/* Logo Section */}
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="group flex-shrink-0 flex items-center gap-3 cursor-pointer"
+            className="group flex-shrink-0 flex items-center gap-2 cursor-pointer"
             onClick={(e) => handleScroll(e, '#home')}
           >
             <div className="relative">
-              <div className="p-2.5 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
-                <HeartPulse className="w-6 h-6 text-white" />
+              <div className="p-2 sm:p-2.5 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl sm:rounded-2xl shadow-lg group-hover:rotate-12 group-hover:scale-110 transition-all duration-500">
+                <HeartPulse className="w-5 h-5 sm:w-6 h-6 text-white" />
               </div>
               <div className="absolute inset-0 bg-blue-400 blur-xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
             </div>
-            <span className={`text-xl sm:text-2xl font-black tracking-tight transition-colors duration-500 ${scrolled ? 'text-slate-900 dark:text-white' : 'text-white'}`}>
+            <span className={`text-lg sm:text-2xl font-black tracking-tighter sm:tracking-tight transition-colors duration-500 ${scrolled ? 'text-slate-900 dark:text-white' : 'text-white'}`}>
               Dr. <span className="bg-gradient-to-r from-blue-400 to-indigo-400 bg-clip-text text-transparent">Arijit</span> Sen
             </span>
           </motion.div>
@@ -103,14 +103,14 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className={`hidden lg:flex items-center space-x-1 backdrop-blur-md p-1.5 rounded-full border transition-all duration-500 ${scrolled ? 'bg-slate-100/50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700' : 'bg-white/10 border-white/20'}`}
+            className={`hidden xl:flex items-center space-x-1 backdrop-blur-md p-1.5 rounded-full border transition-all duration-500 ${scrolled ? 'bg-slate-100/50 dark:bg-slate-800/50 border-slate-200 dark:border-slate-700' : 'bg-white/10 border-white/20'}`}
           >
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
                 onClick={(e) => handleScroll(e, item.href)}
-                className={`px-5 py-2.5 text-xs font-black rounded-full transition-all duration-300 uppercase tracking-widest ${scrolled
+                className={`px-4 py-2 text-[10px] font-black rounded-full transition-all duration-300 uppercase tracking-widest ${scrolled
                   ? 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-white dark:hover:bg-slate-700 shadow-sm hover:shadow-md'
                   : 'text-blue-50 hover:text-white hover:bg-white/20'
                   }`}
@@ -121,7 +121,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
           </motion.div>
 
           {/* Right Actions */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden lg:flex items-center space-x-4">
             {/* Theme Toggle Button */}
             <button
               onClick={toggleTheme}
@@ -149,7 +149,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
             {isLoggedIn ? (
               <button
                 onClick={onDashboardClick}
-                className={`flex items-center gap-2 font-black text-xs uppercase tracking-widest transition-colors duration-500 ${scrolled ? 'text-slate-900 dark:text-white hover:text-blue-600' : 'text-white hover:text-blue-200'}`}
+                className={`flex items-center gap-2 font-black text-[10px] uppercase tracking-widest transition-colors duration-500 ${scrolled ? 'text-slate-900 dark:text-white hover:text-blue-600' : 'text-white hover:text-blue-200'}`}
               >
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-500 ${scrolled ? 'bg-blue-100 dark:bg-slate-800' : 'bg-white/20'}`}>
                   <User className={`w-4 h-4 ${scrolled ? 'text-blue-600' : 'text-white'}`} />
@@ -159,7 +159,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
             ) : (
               <button
                 onClick={onLoginClick}
-                className={`font-black text-xs tracking-widest uppercase transition-colors duration-500 ${scrolled ? 'text-slate-900 dark:text-white hover:text-blue-600' : 'text-white hover:text-blue-200'}`}
+                className={`font-black text-[10px] tracking-widest uppercase transition-colors duration-500 ${scrolled ? 'text-slate-900 dark:text-white hover:text-blue-600' : 'text-white hover:text-blue-200'}`}
               >
                 Sign In
               </button>
@@ -168,33 +168,28 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
             <a
               href="#appointment"
               onClick={(e) => handleScroll(e, '#appointment')}
-              className={`relative group font-black py-4 px-8 rounded-2xl transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-blue-500/20 active:scale-95 ${scrolled ? 'bg-slate-900 dark:bg-blue-600 text-white' : 'bg-white text-slate-900'
+              className={`relative group font-black py-3 px-6 rounded-xl transition-all duration-500 overflow-hidden shadow-2xl hover:shadow-blue-500/20 active:scale-95 ${scrolled ? 'bg-slate-900 dark:bg-blue-600 text-white' : 'bg-white text-slate-900'
                 }`}
             >
               <div className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ${scrolled ? 'bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-white/10 dark:to-white/20' : 'bg-blue-50'
                 }`}></div>
-              <span className="relative z-10 text-[10px] uppercase tracking-[0.2em] flex items-center gap-3">
+              <span className="relative z-10 text-[9px] uppercase tracking-[0.2em] flex items-center gap-2">
                 Book a Visit <ArrowRight className="w-4 h-4" />
               </span>
             </a>
           </div>
 
           {/* Mobile UI */}
-          <div className="lg:hidden flex items-center gap-4">
+          <div className="lg:hidden flex items-center gap-2">
             <button
               onClick={toggleTheme}
-              className="p-2.5 bg-slate-100 dark:bg-slate-800 rounded-2xl text-slate-600 dark:text-slate-300"
+              className={`p-2 rounded-xl transition-all duration-500 ${scrolled ? 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' : 'bg-white/10 text-white'}`}
             >
               {isDark ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
             </button>
-            {!isLoggedIn && (
-              <button onClick={onLoginClick} className="p-2 text-slate-600 dark:text-slate-400">
-                <User className="w-6 h-6" />
-              </button>
-            )}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="p-3 bg-slate-100/80 dark:bg-slate-800/80 backdrop-blur-md rounded-2xl text-slate-900 dark:text-white hover:bg-white transition-all shadow-sm"
+              className={`p-2.5 rounded-xl transition-all shadow-sm ${scrolled ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'bg-white/20 text-white'}`}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -211,26 +206,42 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
             exit={{ height: 0, opacity: 0 }}
             className="lg:hidden absolute top-full inset-x-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl border-t border-slate-100 dark:border-slate-800 shadow-2xl overflow-hidden"
           >
-            <div className="p-6 space-y-4">
+            <div className="p-6 space-y-6">
               <div className="grid grid-cols-2 gap-3">
                 {NAV_ITEMS.map((item) => (
                   <a
                     key={item.label}
                     href={item.href}
                     onClick={(e) => handleScroll(e, item.href)}
-                    className="flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-800 rounded-[2rem] text-xs font-black text-slate-900 dark:text-white hover:bg-blue-600 hover:text-white transition-all uppercase tracking-widest"
+                    className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-800 rounded-2xl text-[10px] font-black text-slate-900 dark:text-white hover:bg-blue-600 hover:text-white transition-all uppercase tracking-widest text-center"
                   >
                     {item.label}
                   </a>
                 ))}
               </div>
 
+              {!isLoggedIn ? (
+                <button
+                  onClick={() => { setIsOpen(false); onLoginClick(); }}
+                  className="w-full flex items-center justify-center gap-3 p-5 bg-slate-100 dark:bg-slate-800 rounded-2xl text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-widest"
+                >
+                  <User className="w-4 h-4" /> Sign In to Portal
+                </button>
+              ) : (
+                <button
+                  onClick={() => { setIsOpen(false); onDashboardClick(); }}
+                  className="w-full flex items-center justify-center gap-3 p-5 bg-blue-50 dark:bg-blue-900/20 rounded-2xl text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest"
+                >
+                  <User className="w-4 h-4" /> Go to Dashboard
+                </button>
+              )}
+
               <a
                 href="#appointment"
                 onClick={(e) => handleScroll(e, '#appointment')}
-                className="w-full bg-blue-600 text-white font-black py-6 rounded-[2rem] flex items-center justify-center gap-4 shadow-xl shadow-blue-200 dark:shadow-blue-900/40 uppercase tracking-widest text-sm"
+                className="w-full bg-blue-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-blue-500/20 uppercase tracking-widest text-xs"
               >
-                Start Booking <ArrowRight className="w-5 h-5" />
+                Secure Booking <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </motion.div>

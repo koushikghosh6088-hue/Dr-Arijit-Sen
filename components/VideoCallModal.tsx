@@ -70,7 +70,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                     ) : (
                         <>
                             {/* Header */}
-                            <div className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-10 rounded-t-[2.5rem] relative overflow-hidden">
+                            <div className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-6 sm:p-10 rounded-t-[2.5rem] relative overflow-hidden">
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
                                 <button
                                     onClick={onClose}
@@ -93,7 +93,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                             </div>
 
                             {/* Form */}
-                            <form onSubmit={handleSubmit} className="p-10 space-y-8">
+                            <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8">
                                 <div className="space-y-3">
                                     <label className="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
                                         <User className="w-4 h-4 text-blue-600" />

@@ -11,10 +11,10 @@ const Footer: React.FC = () => {
           {/* Brand */}
           <div className="space-y-8">
             <div className="flex items-center gap-2">
-              <div className="p-2.5 bg-blue-600 rounded-2xl shadow-lg shadow-blue-500/20">
-                <HeartPulse className="w-6 h-6 text-white" />
+              <div className="p-2 sm:p-2.5 bg-blue-600 rounded-xl sm:rounded-2xl shadow-lg shadow-blue-500/20">
+                <HeartPulse className="w-5 h-5 sm:w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl sm:text-3xl font-black tracking-tight uppercase">
+              <span className="text-xl sm:text-3xl font-black tracking-tight uppercase">
                 Dr. <span className="text-blue-500">Arijit</span> Sen
               </span>
             </div>

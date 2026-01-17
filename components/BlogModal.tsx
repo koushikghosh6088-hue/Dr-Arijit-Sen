@@ -46,7 +46,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-3xl font-black leading-tight uppercase tracking-tight"
+                                className="text-xl sm:text-3xl font-black leading-tight uppercase tracking-tight"
                             >
                                 {post.title}
                             </motion.h2>
@@ -54,7 +54,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
                     </div>
 
                     {/* Content Section */}
-                    <div className="flex-1 overflow-y-auto p-10 md:p-16 space-y-10 bg-white dark:bg-slate-900 dark:text-white custom-scrollbar transition-colors duration-500">
+                    <div className="flex-1 overflow-y-auto p-6 md:p-16 space-y-10 bg-white dark:bg-slate-900 dark:text-white custom-scrollbar transition-colors duration-500">
                         {/* Header Info Desktop */}
                         <div className="hidden md:block space-y-6">
                             <div className="flex items-center gap-4">
@@ -70,7 +70,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
                         </div>
 
                         {/* Meta Info */}
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 py-8 border-y border-slate-100 dark:border-slate-800">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 py-8 border-y border-slate-100 dark:border-slate-800">
                             {[
                                 { icon: Calendar, label: "Date", value: post.date },
                                 { icon: User, label: "Expertise", value: post.author },
@@ -90,7 +90,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
 
                         {/* Post Content */}
                         <div className="prose prose-slate dark:prose-invert max-w-none">
-                            <p className="text-slate-600 dark:text-slate-300 text-xl leading-relaxed font-medium first-letter:text-6xl first-letter:font-black first-letter:text-blue-600 first-letter:dark:text-blue-500 first-letter:mr-4 first-letter:float-left first-letter:uppercase">
+                            <p className="text-slate-600 dark:text-slate-300 text-lg sm:text-xl leading-relaxed font-medium first-letter:text-6xl first-letter:font-black first-letter:text-blue-600 first-letter:dark:text-blue-500 first-letter:mr-4 first-letter:float-left first-letter:uppercase">
                                 {post.content}
                             </p>
 

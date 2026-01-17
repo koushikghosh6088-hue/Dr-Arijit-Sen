@@ -65,7 +65,7 @@ const Testimonials: React.FC = () => {
             <Users className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider uppercase">Patient Stories</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+          <h2 className="text-3xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
             Trusted by Hundreds of Patients
           </h2>
           <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
@@ -116,7 +116,7 @@ const Testimonials: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ delay: (index % TESTIMONIALS.length) * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="flex-shrink-0 w-[300px] sm:w-96 bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group border-2 border-slate-100 dark:border-slate-800 hover:border-blue-200 dark:hover:border-blue-500/50"
+                className="flex-shrink-0 w-[260px] sm:w-96 bg-white dark:bg-slate-800/50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 group border-2 border-slate-100 dark:border-slate-800 hover:border-blue-200 dark:hover:border-blue-500/50"
               >
                 {/* Gradient Top Bar */}
                 <div className="h-2 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600"></div>

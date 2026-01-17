@@ -124,7 +124,7 @@ const AppointmentForm: React.FC = () => {
               <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider uppercase">Book Appointment</span>
             </div>
 
-            <h2 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white leading-tight">
+            <h2 className="text-3xl md:text-7xl font-black text-slate-900 dark:text-white leading-tight">
               Schedule <br /><span className="text-blue-600 dark:text-blue-400">Your Visit</span>
             </h2>
 
@@ -135,7 +135,7 @@ const AppointmentForm: React.FC = () => {
             {/* Availability Info */}
             <motion.div
               whileHover={{ scale: 1.02 }}
-              className="bg-gradient-to-br from-blue-50 to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-[2rem] p-8 border-2 border-white dark:border-slate-700 shadow-xl"
+              className="bg-gradient-to-br from-blue-50 to-slate-50 dark:from-slate-800 dark:to-slate-900 rounded-[2rem] p-6 sm:p-8 border-2 border-white dark:border-slate-700 shadow-xl"
             >
               <div className="flex items-start gap-6">
                 <div className="p-4 bg-blue-600 dark:bg-blue-500 rounded-2xl shadow-lg">
@@ -189,18 +189,18 @@ const AppointmentForm: React.FC = () => {
             className="bg-white dark:bg-slate-800/40 rounded-[3rem] shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800 backdrop-blur-xl"
           >
             {/* Form Header */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-800 text-white p-10">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-800 text-white p-6 sm:p-10">
               <div className="flex items-center gap-4 mb-3">
                 <div className="p-3 bg-white/20 rounded-2xl">
                   <Sparkles className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-3xl font-black tracking-tight">Secure Booking</h3>
+                <h3 className="text-xl sm:text-3xl font-black tracking-tight">Secure Booking</h3>
               </div>
-              <p className="text-blue-50 text-lg opacity-80 font-medium">Please provide accurate health details</p>
+              <p className="text-blue-50 text-base sm:text-lg opacity-80 font-medium">Please provide accurate health details</p>
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="p-10 space-y-8">
+            <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8">
               {/* Name */}
               <div className="space-y-3">
                 <label className="text-sm font-black text-slate-700 dark:text-slate-300 uppercase tracking-widest flex items-center gap-2">
@@ -304,8 +304,8 @@ const AppointmentForm: React.FC = () => {
                       type="button"
                       onClick={() => setFormData({ ...formData, consultationType: mode })}
                       className={`py-4 rounded-2xl font-black text-sm uppercase tracking-widest transition-all border-2 ${formData.consultationType === mode
-                          ? 'bg-blue-600 dark:bg-blue-500 text-white border-blue-600 dark:border-blue-500 shadow-lg'
-                          : 'bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 border-slate-100 dark:border-slate-800 hover:border-blue-200'
+                        ? 'bg-blue-600 dark:bg-blue-500 text-white border-blue-600 dark:border-blue-500 shadow-lg'
+                        : 'bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 border-slate-100 dark:border-slate-800 hover:border-blue-200'
                         }`}
                     >
                       {mode === 'offline' ? 'In-Person' : 'Video Call'}

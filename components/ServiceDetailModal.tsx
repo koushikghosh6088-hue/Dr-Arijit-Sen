@@ -30,7 +30,7 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                     className="bg-white dark:bg-slate-900 rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] max-w-5xl w-full my-8 overflow-hidden border border-white/10"
                 >
                     {/* Header with Gradient */}
-                    <div className="relative bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 text-white p-8 sm:p-12 md:p-16 overflow-hidden">
+                    <div className="relative bg-gradient-to-br from-blue-700 via-blue-800 to-indigo-900 text-white p-6 sm:p-12 md:p-16 overflow-hidden">
                         <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
                         <button
                             onClick={onClose}
@@ -55,15 +55,15 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                                         <Sparkles className="w-4 h-4" />
                                         <span className="text-xs font-black uppercase tracking-[0.3em]">Medical Expertise</span>
                                     </div>
-                                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-black mb-2 leading-tight tracking-tight uppercase">
+                                    <h2 className="text-2xl sm:text-5xl md:text-6xl font-black mb-2 leading-tight tracking-tight uppercase">
                                         {service.title}
                                     </h2>
-                                    <p className="text-2xl sm:text-3xl text-blue-300 font-black mb-4 flex items-center justify-center sm:justify-start gap-3">
+                                    <p className="text-xl sm:text-3xl text-blue-300 font-black mb-4 flex items-center justify-center sm:justify-start gap-3">
                                         <span className="h-px w-8 bg-blue-300/30 hidden sm:block"></span>
                                         {service.bengaliTitle}
                                     </p>
                                 </div>
-                                <p className="text-lg sm:text-xl text-blue-50/80 leading-relaxed max-w-3xl font-medium">
+                                <p className="text-base sm:text-xl text-blue-50/80 leading-relaxed max-w-3xl font-medium">
                                     {service.fullDescription}
                                 </p>
                             </div>
@@ -149,10 +149,10 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="bg-gradient-to-r from-blue-700 to-indigo-800 dark:from-blue-600 dark:to-indigo-700 rounded-[3rem] p-10 sm:p-16 text-white text-center space-y-8 shadow-3xl border border-white/10"
+                            className="bg-gradient-to-r from-blue-700 to-indigo-800 dark:from-blue-600 dark:to-indigo-700 rounded-[3rem] p-8 sm:p-16 text-white text-center space-y-8 shadow-3xl border border-white/10"
                         >
                             <div className="space-y-4">
-                                <h4 className="text-3xl sm:text-4xl font-black uppercase tracking-tight">Priority Healthcare</h4>
+                                <h4 className="text-2xl sm:text-4xl font-black uppercase tracking-tight">Priority Healthcare</h4>
                                 <p className="text-xl text-blue-200 max-w-2xl mx-auto font-medium">Dr. Arijit provides personalized, data-driven care for {service.title.toLowerCase()}</p>
                             </div>
                             <div className="flex flex-wrap gap-6 justify-center pt-4">

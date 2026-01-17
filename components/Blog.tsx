@@ -25,10 +25,10 @@ const Blog: React.FC = () => {
             <BookOpen className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider">HEALTH KNOWLEDGE BASE</span>
           </div>
-          <h2 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+          <h2 className="text-3xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
             Insights & Health Advice
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Stay informed with the latest medical insights and wellness tips from Dr. Arijit
           </p>
         </motion.div>
@@ -59,7 +59,7 @@ const Blog: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-10 flex-1 flex flex-col space-y-5">
+              <div className="p-6 md:p-10 flex-1 flex flex-col space-y-5">
                 <div className="flex items-center gap-4 text-slate-400 dark:text-slate-500 text-[10px] font-black uppercase tracking-widest">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
@@ -103,9 +103,9 @@ const Blog: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.05, backgroundColor: "#1e293b" }}
             whileTap={{ scale: 0.98 }}
-            className="px-12 py-6 bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white font-black rounded-[2rem] shadow-xl hover:shadow-2xl transition-all uppercase text-sm tracking-widest flex items-center gap-4 mx-auto border border-white/10"
+            className="px-8 py-5 sm:px-12 sm:py-6 bg-slate-900 dark:bg-blue-600 hover:bg-slate-800 dark:hover:bg-blue-500 text-white font-black rounded-[2rem] shadow-xl hover:shadow-2xl transition-all uppercase text-xs sm:text-sm tracking-widest flex items-center gap-4 mx-auto border border-white/10"
           >
-            Explore All Expertise Articles <ArrowUpRight className="w-6 h-6 text-blue-400 dark:text-blue-200" />
+            Explore All Expertise Articles <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400 dark:text-blue-200" />
           </motion.button>
         </motion.div>
       </div>

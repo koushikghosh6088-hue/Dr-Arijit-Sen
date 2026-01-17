@@ -17,7 +17,7 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                     className="bg-white dark:bg-slate-900 rounded-[3rem] shadow-[0_30px_60px_rgba(0,0,0,0.5)] max-w-3xl w-full my-8 overflow-hidden border border-white/10"
                 >
                     {/* Header */}
-                    <div className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-10 rounded-t-[3rem] relative overflow-hidden">
+                    <div className="bg-gradient-to-r from-blue-700 to-indigo-800 text-white p-6 sm:p-10 rounded-t-[3rem] relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
                         <button
                             onClick={onClose}
@@ -38,13 +38,13 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                                     <Sparkles className="w-4 h-4 text-blue-200" />
                                     <span className="text-xs font-black uppercase tracking-[0.3em] text-blue-200">Official Hours</span>
                                 </div>
-                                <h2 className="text-4xl font-black tracking-tight uppercase">Medical Schedule</h2>
+                                <h2 className="text-2xl sm:text-4xl font-black tracking-tight uppercase">Medical Schedule</h2>
                             </div>
                         </div>
                     </div>
 
                     {/* Schedule Content */}
-                    <div className="p-10 md:p-14 space-y-12 dark:bg-slate-900 transition-colors duration-500">
+                    <div className="p-6 md:p-14 space-y-12 dark:bg-slate-900 transition-colors duration-500">
                         {/* Weekly Schedule */}
                         <div className="space-y-6">
                             <h3 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight flex items-center gap-3">
@@ -55,7 +55,7 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                                 {/* Saturday - Sunday */}
                                 <motion.div
                                     whileHover={{ x: 10 }}
-                                    className="bg-blue-50/50 dark:bg-blue-900/10 border-l-8 border-blue-600 dark:border-blue-500 p-6 rounded-2xl shadow-sm border border-blue-100/20"
+                                    className="bg-blue-50/50 dark:bg-blue-900/10 border-l-8 border-blue-600 dark:border-blue-500 p-4 sm:p-6 rounded-2xl shadow-sm border border-blue-100/20"
                                 >
                                     <div className="flex justify-between items-center">
                                         <div className="space-y-1">
@@ -75,7 +75,7 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                                 {/* Monday - Friday */}
                                 <motion.div
                                     whileHover={{ x: 10 }}
-                                    className="bg-slate-50 dark:bg-slate-800/50 border-l-8 border-slate-400 dark:border-slate-600 p-6 rounded-2xl shadow-sm border border-slate-200/20"
+                                    className="bg-slate-50 dark:bg-slate-800/50 border-l-8 border-slate-400 dark:border-slate-600 p-4 sm:p-6 rounded-2xl shadow-sm border border-slate-200/20"
                                 >
                                     <div className="flex justify-between items-center">
                                         <div className="space-y-1">

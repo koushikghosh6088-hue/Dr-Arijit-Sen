@@ -58,10 +58,10 @@ const Qualifications: React.FC = () => {
             <GraduationCap className="w-4 h-4 text-blue-600 dark:text-blue-400" />
             <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider">EDUCATION & ACHIEVEMENTS</span>
           </motion.div>
-          <h2 className="text-5xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+          <h2 className="text-3xl md:text-6xl font-black text-slate-900 dark:text-white leading-tight">
             Qualifications & Excellence
           </h2>
-          <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
             Academic achievements and professional credentials
           </p>
         </motion.div>
@@ -93,10 +93,10 @@ const Qualifications: React.FC = () => {
                     <Star className="w-5 h-5 text-amber-500 fill-amber-500" />
                     <span className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide">{achievement.subtitle}</span>
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 dark:text-white mb-1">
+                  <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-1">
                     {achievement.title}
                   </h3>
-                  <p className="text-lg font-semibold text-slate-600 dark:text-slate-400">
+                  <p className="text-base sm:text-lg font-semibold text-slate-600 dark:text-slate-400">
                     {achievement.exam}
                   </p>
                 </div>
@@ -148,7 +148,7 @@ const Qualifications: React.FC = () => {
 
                 {/* Degree */}
                 <div className="flex-1">
-                  <p className="text-2xl font-black text-slate-900 dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <p className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {q.degree}
                   </p>
                 </div>

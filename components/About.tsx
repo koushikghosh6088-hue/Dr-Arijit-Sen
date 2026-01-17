@@ -85,7 +85,7 @@ const About: React.FC = () => {
               <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider">About Me</span>
             </motion.div>
 
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">My Journey in Medicine</h2>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">My Journey in Medicine</h2>
 
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
               I'm Dr. Arijit, an ICU Resident at Sharanya Superspeciality Hospital with a passion for holistic, evidence-based medical care. With extensive experience in Cardiology and Neuromedicine, I've had the privilege of treating thousands of patients with empathy and accuracy.
