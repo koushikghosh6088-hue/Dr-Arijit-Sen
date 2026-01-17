@@ -77,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled
         ? 'py-3 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-b border-white/20 dark:border-slate-800 shadow-[0_8px_32px_rgba(0,0,0,0.05)]'
-        : 'py-6 bg-transparent'
+        : 'py-4 sm:py-6 bg-transparent'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -173,8 +173,8 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
             >
               <div className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ${scrolled ? 'bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-white/10 dark:to-white/20' : 'bg-blue-50'
                 }`}></div>
-              <span className="relative z-10 text-[9px] uppercase tracking-[0.2em] flex items-center gap-2">
-                Book a Visit <ArrowRight className="w-4 h-4" />
+              <span className="relative z-10 text-[8px] sm:text-[9px] uppercase tracking-[0.2em] flex items-center gap-2">
+                Book a Visit <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
               </span>
             </a>
           </div>
@@ -189,7 +189,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2.5 rounded-xl transition-all shadow-sm ${scrolled ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'bg-white/20 text-white'}`}
+              className={`p-2.5 min-w-[48px] min-h-[48px] flex items-center justify-center rounded-xl transition-all shadow-sm ${scrolled ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white' : 'bg-white/20 text-white'}`}
             >
               {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -213,7 +213,7 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
                     key={item.label}
                     href={item.href}
                     onClick={(e) => handleScroll(e, item.href)}
-                    className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-800 rounded-2xl text-[10px] font-black text-slate-900 dark:text-white hover:bg-blue-600 hover:text-white transition-all uppercase tracking-widest text-center"
+                    className="flex flex-col items-center justify-center p-4 sm:p-5 bg-slate-50 dark:bg-slate-800 rounded-2xl text-[9px] sm:text-[10px] font-black text-slate-900 dark:text-white hover:bg-blue-600 hover:text-white transition-all uppercase tracking-widest text-center"
                   >
                     {item.label}
                   </a>
@@ -239,9 +239,9 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
               <a
                 href="#appointment"
                 onClick={(e) => handleScroll(e, '#appointment')}
-                className="w-full bg-blue-600 text-white font-black py-5 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-blue-500/20 uppercase tracking-widest text-xs"
+                className="w-full bg-blue-600 text-white font-black py-4 rounded-2xl flex items-center justify-center gap-3 shadow-xl shadow-blue-500/20 uppercase tracking-widest text-[10px] sm:text-xs"
               >
-                Secure Booking <ArrowRight className="w-5 h-5" />
+                Secure Booking <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
             </div>
           </motion.div>

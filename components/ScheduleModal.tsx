@@ -38,7 +38,7 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                                     <Sparkles className="w-4 h-4 text-blue-200" />
                                     <span className="text-xs font-black uppercase tracking-[0.3em] text-blue-200">Official Hours</span>
                                 </div>
-                                <h2 className="text-2xl sm:text-4xl font-black tracking-tight uppercase">Medical Schedule</h2>
+                                <h2 className="text-xl sm:text-4xl font-black tracking-tight uppercase">Medical Schedule</h2>
                             </div>
                         </div>
                     </div>
@@ -47,8 +47,8 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                     <div className="p-6 md:p-14 space-y-12 dark:bg-slate-900 transition-colors duration-500">
                         {/* Weekly Schedule */}
                         <div className="space-y-6">
-                            <h3 className="text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight flex items-center gap-3">
-                                <Clock className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                            <h3 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white uppercase tracking-tight flex items-center gap-3">
+                                <Clock className="w-5 h-5 sm:w-6 sm:h-6 text-blue-600 dark:text-blue-400" />
                                 Availability Timeline
                             </h3>
                             <div className="space-y-4">
@@ -59,7 +59,7 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                                 >
                                     <div className="flex justify-between items-center">
                                         <div className="space-y-1">
-                                            <p className="font-black text-xl text-slate-900 dark:text-white uppercase tracking-tight">Weekend Clinics</p>
+                                            <p className="font-black text-lg sm:text-xl text-slate-900 dark:text-white uppercase tracking-tight">Weekend Clinics</p>
                                             <p className="text-blue-600 dark:text-blue-400 font-bold flex items-center gap-2">
                                                 <ChevronRight className="w-4 h-4" /> Comprehensive Consultations
                                             </p>
@@ -79,7 +79,7 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                                 >
                                     <div className="flex justify-between items-center">
                                         <div className="space-y-1">
-                                            <p className="font-black text-xl text-slate-900 dark:text-white uppercase tracking-tight">Weekday Rounds</p>
+                                            <p className="font-black text-lg sm:text-xl text-slate-900 dark:text-white uppercase tracking-tight">Weekday Rounds</p>
                                             <p className="text-slate-600 dark:text-slate-400 font-bold flex items-center gap-2">
                                                 <ChevronRight className="w-4 h-4" /> ICU & Critical Care
                                             </p>
@@ -130,7 +130,7 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                         </div>
 
                         {/* Important Notes */}
-                        <div className="bg-amber-50 dark:bg-amber-900/10 border-2 border-amber-100 dark:border-amber-900/30 rounded-[2.5rem] p-8 space-y-4 shadow-inner relative overflow-hidden">
+                        <div className="bg-amber-50 dark:bg-amber-900/10 border-2 border-amber-100 dark:border-amber-900/30 rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-8 space-y-4 shadow-inner relative overflow-hidden">
                             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                                 <Info className="w-32 h-32 text-amber-900" />
                             </div>
@@ -173,14 +173,14 @@ const ScheduleModal: React.FC<ScheduleModalProps> = ({ onClose }) => {
                                         }
                                     }, 100);
                                 }}
-                                className="flex-[2] bg-blue-600 hover:bg-blue-700 text-white font-black py-6 px-10 rounded-[1.5rem] transition-all shadow-2xl shadow-blue-500/30 uppercase tracking-[0.2em] text-sm text-center"
+                                className="flex-[2] bg-blue-600 hover:bg-blue-700 text-white font-black py-4 sm:py-6 px-6 sm:px-10 rounded-[1.5rem] transition-all shadow-2xl shadow-blue-500/30 uppercase tracking-[0.2em] text-[10px] sm:text-sm text-center"
                             >
                                 Secure Your Slot
                             </motion.a>
                             <motion.button
                                 whileHover={{ backgroundColor: "rgba(0,0,0,0.05)" }}
                                 onClick={onClose}
-                                className="flex-1 px-10 py-6 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black rounded-[1.5rem] transition-all uppercase tracking-[0.2em] text-sm border-2 border-transparent hover:border-slate-200 dark:hover:border-slate-700"
+                                className="flex-1 px-6 sm:px-10 py-4 sm:py-6 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black rounded-[1.5rem] transition-all uppercase tracking-[0.2em] text-[10px] sm:text-sm border-2 border-transparent hover:border-slate-200 dark:hover:border-slate-700"
                             >
                                 Dismiss
                             </motion.button>

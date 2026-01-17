@@ -58,13 +58,13 @@ const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
                         {/* Header Info Desktop */}
                         <div className="hidden md:block space-y-6">
                             <div className="flex items-center gap-4">
-                                <span className="px-6 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl text-xs font-black tracking-[0.3em] uppercase border border-blue-200/20 shadow-inner">
+                                <span className="px-6 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-2xl text-[10px] font-black tracking-[0.3em] uppercase border border-blue-200/20 shadow-inner">
                                     {post.category}
                                 </span>
                                 <div className="h-px flex-1 bg-slate-100 dark:bg-slate-800"></div>
                                 <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                             </div>
-                            <h2 className="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight uppercase tracking-tight">
+                            <h2 className="text-2xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight uppercase tracking-tight">
                                 {post.title}
                             </h2>
                         </div>
@@ -97,21 +97,21 @@ const BlogModal: React.FC<BlogModalProps> = ({ post, onClose }) => {
                             <motion.div
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
-                                className="mt-12 p-8 bg-blue-50 dark:bg-blue-900/10 rounded-[2.5rem] border-l-8 border-blue-600 dark:border-blue-500 shadow-2xl shadow-blue-500/5 relative overflow-hidden"
+                                className="mt-8 sm:mt-12 p-6 sm:p-8 bg-blue-50 dark:bg-blue-900/10 rounded-[2rem] sm:rounded-[2.5rem] border-l-8 border-blue-600 dark:border-blue-500 shadow-2xl shadow-blue-500/5 relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 p-4 opacity-10">
                                     <BookOpen className="w-24 h-24" />
                                 </div>
-                                <p className="text-blue-900 dark:text-blue-300 font-black italic text-2xl leading-relaxed relative z-10">
+                                <p className="text-blue-900 dark:text-blue-300 font-black italic text-lg sm:text-2xl leading-relaxed relative z-10">
                                     "Wellness is not just the absence of disease, it's a dynamic state of mind, body, and spirit."
                                 </p>
                                 <div className="flex items-center gap-3 mt-6 relative z-10">
                                     <div className="h-px w-10 bg-blue-600"></div>
-                                    <p className="text-blue-700 dark:text-blue-400 text-sm font-black uppercase tracking-[0.3em]">DR. ARIJIT SEN</p>
+                                    <p className="text-blue-700 dark:text-blue-400 text-xs font-black uppercase tracking-[0.3em]">DR. ARIJIT SEN</p>
                                 </div>
                             </motion.div>
 
-                            <p className="text-slate-600 dark:text-slate-300 text-xl leading-relaxed mt-12 font-medium">
+                            <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-xl leading-relaxed mt-10 font-medium">
                                 Continuing this journey, our primary goal is to empower every reader with evidence-based medical knowledge. In an era of information overload, Dr. Arijit Sen focuses on distilling complex medical concepts into actionable health insights. Stay tuned for more expert clinical perspectives.
                             </p>
                         </div>

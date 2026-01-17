@@ -24,11 +24,20 @@
   <style>
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 80px;
+      font-size: 15px;
+    }
+
+    @media (max-width: 640px) {
+      html {
+        font-size: 14px;
+      }
     }
 
     body {
       font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     .medical-gradient {

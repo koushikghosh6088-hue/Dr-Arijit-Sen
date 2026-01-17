@@ -85,13 +85,13 @@ const About: React.FC = () => {
               <span className="text-xs font-bold text-blue-600 dark:text-blue-400 tracking-wider">About Me</span>
             </motion.div>
 
-            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">My Journey in Medicine</h2>
+            <h2 className="text-2xl sm:text-5xl font-extrabold text-slate-900 dark:text-white leading-tight">My Journey in Medicine</h2>
 
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
               I'm Dr. Arijit, an ICU Resident at Sharanya Superspeciality Hospital with a passion for holistic, evidence-based medical care. With extensive experience in Cardiology and Neuromedicine, I've had the privilege of treating thousands of patients with empathy and accuracy.
             </p>
 
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
+            <p className="text-sm sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl">
               I strongly believe that medicine is not just about treating diseases, but about understanding people, building trust, and guiding them toward long-term wellness.
             </p>
 
@@ -113,17 +113,17 @@ const About: React.FC = () => {
                 href="https://wa.me/917003383676"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-blue-600 dark:bg-blue-500 hover:bg-blue-500 dark:hover:bg-blue-400 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 transition-all"
+                className="w-full sm:w-auto bg-blue-600 dark:bg-blue-500 hover:bg-blue-500 dark:hover:bg-blue-400 text-white font-bold py-3.5 px-6 sm:px-8 rounded-2xl flex items-center justify-center gap-3 transition-all text-xs sm:text-sm"
               >
-                SEND MESSAGE <Send className="w-4 h-4" />
+                SEND MESSAGE <Send className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </motion.a>
               <motion.button
                 whileHover={{ scale: 1.05, borderColor: "rgba(37, 99, 235, 0.5)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setShowVideoCallModal(true)}
-                className="w-full sm:w-auto bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 text-slate-900 dark:text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 transition-all"
+                className="w-full sm:w-auto bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600 text-slate-900 dark:text-white font-bold py-3.5 px-6 sm:px-8 rounded-2xl flex items-center justify-center gap-3 transition-all text-xs sm:text-sm"
               >
-                VIDEO CALL <Video className="w-4 h-4" />
+                VIDEO CALL <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </motion.button>
             </div>
           </motion.div>

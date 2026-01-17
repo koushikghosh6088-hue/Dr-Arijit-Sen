@@ -260,7 +260,7 @@ export const BLOGS: BlogPost[] = [
     title: 'Thyroid Health: More Than Just Weight',
     category: 'Hormones',
     date: 'February 28, 2024',
-    imageUrl: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c16?auto=format&fit=crop&q=80&w=800&h=500',
+    imageUrl: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=800&h=500',
     excerpt: 'Thyroid issues can affect your mood, energy, and heart rate. Learn the common signs...',
     content: 'The thyroid gland is a butterfly-shaped organ located in the base of your neck. It releases hormones that control metabolism — the way your body uses energy. The thyroid\'s hormones regulate vital body functions, including: breathing, heart rate, central and peripheral nervous systems, body weight, muscle strength, menstrual cycles, body temperature, cholesterol levels, and much more! When your thyroid doesn\'t work properly, it can impact your entire body. If your body makes too much thyroid hormone, you can develop a condition called hyperthyroidism. If your body makes too little thyroid hormone, it\'s called hypothyroidism. Both conditions are serious and need to be treated by a healthcare provider.',
     author: 'Dr. Arijit Sen'
@@ -270,7 +270,7 @@ export const BLOGS: BlogPost[] = [
     title: 'Respiratory Wellness in Today\'s World',
     category: 'Lungs',
     date: 'February 20, 2024',
-    imageUrl: 'https://images.unsplash.com/photo-1581093192414-353fe73e33e4?auto=format&fit=crop&q=80&w=800&h=500',
+    imageUrl: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=800&h=500',
     excerpt: 'Protecting your lungs from pollution and viruses is more important than ever. Here is how...',
     content: 'The respiratory system is a network of organs and tissues that help you breathe. It includes your airways, lungs and blood vessels. The muscles that power your lungs are also part of the respiratory system. These parts work together to move oxygen throughout the body and clean out waste gases like carbon dioxide. Conditions of the respiratory system can affect your breathing and the way you live. Common issues include asthma, COPD, pneumonia, and lung cancer. Maintaining respiratory health involves avoiding smoking, reducing exposure to environmental pollutants, and practicing regular breathing exercises. It is also essential to get regular check-ups, especially if you have chronic respiratory conditions.',
     author: 'Dr. Arijit Sen'

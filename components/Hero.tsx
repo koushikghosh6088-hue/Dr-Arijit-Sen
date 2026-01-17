@@ -51,11 +51,11 @@ const Hero: React.FC = () => {
               <span className="text-sm font-bold tracking-widest text-blue-50">HI I AM</span>
             </motion.div>
 
-            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold leading-[1.2] lg:leading-[1.1] tracking-tight">
+            <h1 className="text-xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.2] lg:leading-[1.1] tracking-tight">
               Meet Dr. Arijit — Your <span className="text-blue-400">Trusted</span> Healthcare Partner
             </h1>
 
-            <p className="text-base sm:text-xl text-blue-100 dark:text-slate-400 max-w-lg leading-relaxed font-light">
+            <p className="text-sm sm:text-xl text-blue-100 dark:text-slate-400 max-w-lg leading-relaxed font-light">
               Dr. Arijit (MBBS Hons) is a highly experienced ICU Resident and Physician dedicated to comprehensive care for Hypertension, Diabetes, and Critical Care.
             </p>
 
@@ -64,17 +64,17 @@ const Hero: React.FC = () => {
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(37, 99, 235, 0.4)" }}
                 whileTap={{ scale: 0.98 }}
                 href="#appointment"
-                className="w-full sm:w-auto bg-blue-600 dark:bg-blue-500 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-xl shadow-blue-900/40 text-sm sm:text-base"
+                className="w-full sm:w-auto bg-blue-600 dark:bg-blue-500 hover:bg-blue-500 text-white font-bold py-3.5 px-6 sm:px-10 rounded-2xl flex items-center justify-center gap-3 transition-all shadow-xl shadow-blue-900/40 text-xs sm:text-base"
               >
-                BOOK APPOINTMENT <ArrowUpRight className="w-5 h-5" />
+                BOOK APPOINTMENT <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.a>
               <motion.button
                 whileHover={{ scale: 1.05, borderColor: "rgba(255,255,255,0.4)" }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setShowScheduleModal(true)}
-                className="w-full sm:w-auto bg-transparent border-2 border-white/20 dark:border-slate-800 hover:border-white/40 text-white font-bold py-4 px-8 rounded-2xl flex items-center justify-center gap-3 transition-all text-sm sm:text-base"
+                className="w-full sm:w-auto bg-transparent border-2 border-white/20 dark:border-slate-800 hover:border-white/40 text-white font-bold py-3.5 px-6 sm:px-8 rounded-2xl flex items-center justify-center gap-3 transition-all text-xs sm:text-base"
               >
-                VIEW SCHEDULE <ArrowUpRight className="w-5 h-5" />
+                VIEW SCHEDULE <ArrowUpRight className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.button>
             </div>
           </motion.div>

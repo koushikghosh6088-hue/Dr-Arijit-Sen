@@ -87,13 +87,13 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                                             <Sparkles className="w-4 h-4 text-blue-300" />
                                             <span className="text-xs font-black uppercase tracking-[0.2em] text-blue-200">Virtual Clinic</span>
                                         </div>
-                                        <h2 className="text-3xl font-black tracking-tight">Tele-Consultation</h2>
+                                        <h2 className="text-xl sm:text-3xl font-black tracking-tight">Tele-Consultation</h2>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Form */}
-                            <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8">
+                            <form onSubmit={handleSubmit} className="p-5 sm:p-10 space-y-4 sm:space-y-8">
                                 <div className="space-y-3">
                                     <label className="text-xs font-black text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
                                         <User className="w-4 h-4 text-blue-600" />
@@ -105,7 +105,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                                         value={formData.name}
                                         onChange={handleChange}
                                         required
-                                        className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-slate-900 dark:text-white"
+                                        className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-xl sm:rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-sm sm:text-base text-slate-900 dark:text-white"
                                         placeholder="Full Name"
                                     />
                                 </div>
@@ -122,7 +122,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-slate-900 dark:text-white"
+                                            className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-xl sm:rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-sm sm:text-base text-slate-900 dark:text-white"
                                             placeholder="email@example.com"
                                         />
                                     </div>
@@ -137,7 +137,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                                             value={formData.phone}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-slate-900 dark:text-white"
+                                            className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-xl sm:rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-sm sm:text-base text-slate-900 dark:text-white"
                                             placeholder="+91"
                                         />
                                     </div>
@@ -156,7 +156,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                                             onChange={handleChange}
                                             required
                                             min={new Date().toISOString().split('T')[0]}
-                                            className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-slate-900 dark:text-white"
+                                            className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-xl sm:rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-sm sm:text-base text-slate-900 dark:text-white"
                                         />
                                     </div>
                                     <div className="space-y-3">
@@ -168,7 +168,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                                             value={formData.preferredTime}
                                             onChange={handleChange}
                                             required
-                                            className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-slate-900 dark:text-white appearance-none cursor-pointer"
+                                            className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-xl sm:rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-sm sm:text-base text-slate-900 dark:text-white appearance-none cursor-pointer"
                                         >
                                             <option value="">Select time slot</option>
                                             <option value="09:00-10:00">09:00 AM - 10:00 AM</option>
@@ -191,7 +191,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                                         value={formData.reason}
                                         onChange={handleChange}
                                         rows={3}
-                                        className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-slate-900 dark:text-white resize-none"
+                                        className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-slate-50 dark:bg-slate-800/50 border-2 border-slate-100 dark:border-slate-800 rounded-xl sm:rounded-2xl focus:border-blue-500 dark:focus:border-blue-400 focus:outline-none transition-all font-bold text-sm sm:text-base text-slate-900 dark:text-white resize-none"
                                         placeholder="Enter details..."
                                     />
                                 </div>

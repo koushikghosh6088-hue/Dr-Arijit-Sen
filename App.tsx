@@ -75,14 +75,14 @@ function App() {
 
         <section className="py-24 bg-slate-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-[#0f172a] rounded-[3rem] p-16 text-center text-white space-y-6 relative overflow-hidden">
+            <div className="bg-[#0f172a] rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-16 text-center text-white space-y-6 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
                 <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
                   <path d="M0,0 Q50,50 100,0 T100,100 Q50,50 0,100 Z" fill="white" />
                 </svg>
               </div>
-              <h2 className="text-4xl font-black relative z-10">Ready to improve your health?</h2>
-              <p className="text-xl text-slate-400 max-w-2xl mx-auto relative z-10">Dr. Arijit provides expert consultation and personalized care plans for chronic disease management.</p>
+              <h2 className="text-2xl sm:text-4xl font-black relative z-10">Ready to improve your health?</h2>
+              <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto relative z-10">Dr. Arijit provides expert consultation and personalized care plans for chronic disease management.</p>
               <div className="pt-4 relative z-10">
                 <a href="#appointment" className="inline-block bg-[#d9f99d] text-slate-900 font-black py-5 px-10 rounded-2xl shadow-xl hover:scale-105 transition-transform">
                   GET STARTED NOW

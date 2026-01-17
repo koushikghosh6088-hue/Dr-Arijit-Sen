@@ -78,14 +78,14 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                     </div>
 
                     {/* Content */}
-                    <div className="p-8 md:p-16 space-y-16 dark:bg-slate-900 transition-colors duration-500">
+                    <div className="p-6 md:p-16 space-y-12 sm:space-y-16 dark:bg-slate-900 transition-colors duration-500">
                         {/* Symptoms Section */}
                         <div className="space-y-8">
                             <div className="flex items-center gap-4">
                                 <div className="p-4 bg-red-100 dark:bg-red-900/30 rounded-2xl shadow-inner">
                                     <AlertCircle className="w-8 h-8 text-red-600 dark:text-red-400" />
                                 </div>
-                                <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Symptoms</h3>
+                                <h3 className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Symptoms</h3>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {service.symptoms.map((symptom, index) => (
@@ -95,7 +95,7 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                                         className="flex items-center gap-4 p-5 bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30 rounded-[1.5rem] transition-all group"
                                     >
                                         <div className="w-3 h-3 bg-red-500 dark:bg-red-400 rounded-full flex-shrink-0 animate-pulse"></div>
-                                        <p className="text-slate-800 dark:text-slate-200 font-bold text-lg">{symptom}</p>
+                                        <p className="text-slate-800 dark:text-slate-200 font-bold text-base sm:text-lg">{symptom}</p>
                                     </motion.div>
                                 ))}
                             </div>
@@ -107,7 +107,7 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                                 <div className="p-4 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl shadow-inner">
                                     <Heart className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
                                 </div>
-                                <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Treatment</h3>
+                                <h3 className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Treatment</h3>
                             </div>
                             <div className="space-y-4">
                                 {service.treatments.map((treatment, index) => (
@@ -117,7 +117,7 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                                         className="flex items-start gap-5 p-7 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border-l-8 border-emerald-500 rounded-[1.5rem] shadow-sm"
                                     >
                                         <CheckCircle className="w-7 h-7 text-emerald-600 dark:text-emerald-400 flex-shrink-0 mt-0.5" />
-                                        <p className="text-slate-800 dark:text-slate-200 font-bold text-xl leading-relaxed">{treatment}</p>
+                                        <p className="text-slate-800 dark:text-slate-200 font-bold text-lg sm:text-xl leading-relaxed">{treatment}</p>
                                     </motion.div>
                                 ))}
                             </div>
@@ -129,7 +129,7 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                                 <div className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-2xl shadow-inner">
                                     <Shield className="w-8 h-8 text-blue-600 dark:text-blue-400" />
                                 </div>
-                                <h3 className="text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Prevention</h3>
+                                <h3 className="text-xl sm:text-3xl font-black text-slate-900 dark:text-white uppercase tracking-tight">Prevention</h3>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 {service.prevention.map((tip, index) => (
@@ -139,7 +139,7 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                                         className="flex items-start gap-5 p-6 bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-[2rem] transition-all group"
                                     >
                                         <TrendingUp className="w-7 h-7 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-1" />
-                                        <p className="text-slate-800 dark:text-slate-200 font-bold text-lg leading-relaxed">{tip}</p>
+                                        <p className="text-slate-800 dark:text-slate-200 font-bold text-base sm:text-lg leading-relaxed">{tip}</p>
                                     </motion.div>
                                 ))}
                             </div>
@@ -149,7 +149,7 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            className="bg-gradient-to-r from-blue-700 to-indigo-800 dark:from-blue-600 dark:to-indigo-700 rounded-[3rem] p-8 sm:p-16 text-white text-center space-y-8 shadow-3xl border border-white/10"
+                            className="bg-gradient-to-r from-blue-700 to-indigo-800 dark:from-blue-600 dark:to-indigo-700 rounded-[2.5rem] sm:rounded-[3rem] p-6 sm:p-16 text-white text-center space-y-8 shadow-3xl border border-white/10"
                         >
                             <div className="space-y-4">
                                 <h4 className="text-2xl sm:text-4xl font-black uppercase tracking-tight">Priority Healthcare</h4>
@@ -175,14 +175,14 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
                                             }
                                         }, 100);
                                     }}
-                                    className="bg-white text-blue-700 hover:bg-blue-50 font-black py-5 px-12 rounded-[1.5rem] transition-all shadow-2xl shadow-blue-950/20 uppercase tracking-[0.2em] text-sm"
+                                    className="bg-white text-blue-700 hover:bg-blue-50 font-black py-4 sm:py-5 px-8 sm:px-12 rounded-[1.5rem] transition-all shadow-2xl shadow-blue-950/20 uppercase tracking-[0.2em] text-[10px] sm:text-sm"
                                 >
                                     Book Now
                                 </motion.a>
                                 <motion.button
                                     whileHover={{ backgroundColor: "rgba(255,255,255,0.1)" }}
                                     onClick={onClose}
-                                    className="border-2 border-white/30 text-white font-black py-5 px-12 rounded-[1.5rem] transition-all uppercase tracking-[0.2em] text-sm"
+                                    className="border-2 border-white/30 text-white font-black py-4 sm:py-5 px-8 sm:px-12 rounded-[1.5rem] transition-all uppercase tracking-[0.2em] text-[10px] sm:text-sm"
                                 >
                                     Dismiss
                                 </motion.button>
