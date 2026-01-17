@@ -21,7 +21,7 @@ const About: React.FC = () => {
       {/* Background Graphic */}
       <motion.div
         style={{ y: y1 }}
-        className="absolute left-0 bottom-0 opacity-5 dark:opacity-10"
+        className="absolute left-0 bottom-0 opacity-5 dark:opacity-10 pointer-events-none"
       >
         <img src="https://picsum.photos/seed/steth/400/400" alt="steth" className="grayscale dark:invert" />
       </motion.div>

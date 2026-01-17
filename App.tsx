@@ -11,6 +11,7 @@ import Footer from './components/Footer';
 import Testimonials from './components/Testimonials';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -100,6 +101,8 @@ function App() {
       <div id="footer">
         <Footer />
       </div>
+
+      <ScrollToTop />
     </div>
   );
 }
