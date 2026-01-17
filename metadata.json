@@ -1,0 +1,9 @@
+
+{
+  "name": "Dr. Arijit Portfolio & Appointment Booking",
+  "description": "A premium, high-conversion portfolio website for Dr. Arijit, featuring a professional medical theme, appointment booking system, health blogs, and educational resources.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
