@@ -212,7 +212,7 @@ const AppointmentForm: React.FC = () => {
                 <div class="info-value">
                   For any questions or to reschedule, please contact:<br>
                   <strong>WhatsApp:</strong> +91 8481939664<br>
-                  <strong>Email:</strong> koushikghosh6077@gmail.com
+                  <strong>Email:</strong> senarijitdoctor07@gmail.com
                 </div>
               </div>
 

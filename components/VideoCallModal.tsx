@@ -148,7 +148,7 @@ const VideoCallModal: React.FC<VideoCallModalProps> = ({ onClose }) => {
                                 <div class="info-label">📞 Support</div>
                                 <div class="info-value">
                                     <strong>WhatsApp:</strong> +91 8481939664<br>
-                                    <strong>Email:</strong> koushikghosh6077@gmail.com
+                                    <strong>Email:</strong> senarijitdoctor07@gmail.com
                                 </div>
                             </div>
 
