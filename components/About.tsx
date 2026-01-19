@@ -65,7 +65,7 @@ const About: React.FC = () => {
 
             <div className="bg-blue-600 dark:bg-blue-700 p-6 sm:p-8 text-center space-y-2">
               <p className="text-blue-100 font-bold tracking-widest text-[10px] sm:text-xs uppercase">For Emergency Care</p>
-              <p className="text-xl sm:text-2xl font-extrabold text-white">+91 8240XXXXXX</p>
+              <p className="text-xl sm:text-2xl font-extrabold text-white">+91 8481939664</p>
             </div>
           </motion.div>
 

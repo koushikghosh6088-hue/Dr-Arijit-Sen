@@ -278,10 +278,10 @@ const AppointmentForm: React.FC = () => {
           message: ''
         });
 
-        // Hide success message after 7 seconds
+        // Hide success message after 4 seconds
         setTimeout(() => {
           setIsSubmitted(false);
-        }, 7000);
+        }, 4000);
       }
 
     } catch (error: any) {
@@ -318,28 +318,55 @@ const AppointmentForm: React.FC = () => {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-200 dark:bg-purple-900/10 rounded-full blur-3xl opacity-20"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Success Banner */}
+        {/* Success Popup Modal */}
         <AnimatePresence>
           {isSubmitted && (
             <motion.div
-              initial={{ opacity: 0, height: 0, marginBottom: 0 }}
-              animate={{ opacity: 1, height: 'auto', marginBottom: 48 }}
-              exit={{ opacity: 0, height: 0, marginBottom: 0 }}
-              className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-3xl p-8 shadow-2xl overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
             >
-              <div className="flex items-center gap-6">
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  className="p-4 bg-white/20 rounded-full"
-                >
-                  <CheckCircle className="w-10 h-10" />
-                </motion.div>
-                <div>
-                  <h3 className="text-3xl font-black mb-2 tracking-tight">Appointment Confirmed!</h3>
-                  <p className="text-green-50 text-lg">We've received your booking request. Dr. Arijit will contact you shortly via email.</p>
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.5, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 200, damping: 20 }}
+                className="bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 sm:p-12 shadow-2xl max-w-lg w-full text-center relative overflow-hidden border border-white/20"
+              >
+                {/* Background Decorations */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-green-200 dark:bg-green-900/30 rounded-full blur-2xl opacity-50 -mr-10 -mt-10"></div>
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-200 dark:bg-blue-900/30 rounded-full blur-2xl opacity-50 -ml-10 -mb-10"></div>
+
+                <div className="relative z-10">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring" }}
+                    className="w-24 h-24 mx-auto bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center mb-6"
+                  >
+                    <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400" />
+                  </motion.div>
+
+                  <h3 className="text-3xl font-black text-slate-900 dark:text-white mb-4 leading-tight">
+                    Booking Confirmed!
+                  </h3>
+
+                  <p className="text-lg text-slate-600 dark:text-slate-300 font-medium mb-8">
+                    We've received your request. Dr. Arijit will contact you shortly via email.
+                  </p>
+
+                  <div className="flex justify-center">
+                    <motion.div
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 4 }}
+                      className="h-1.5 bg-green-500 rounded-full w-full max-w-[12rem] mx-auto opacity-50"
+                    ></motion.div>
+                  </div>
+                  <p className="text-xs text-slate-400 mt-2 font-bold uppercase tracking-widest">Redirecting...</p>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
