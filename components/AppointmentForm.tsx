@@ -1,9 +1,10 @@
-
-import React, { useState } from 'react';
-import { Calendar, Clock, User, Mail, Phone, FileText, CheckCircle, MapPin, Sparkles } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Calendar, Clock, User, Mail, Phone, FileText, CheckCircle, MapPin, Sparkles, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 
 const AppointmentForm: React.FC = () => {
+  const formRef = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -14,6 +15,13 @@ const AppointmentForm: React.FC = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+
+  // Initialize EmailJS on component mount
+  useEffect(() => {
+    emailjs.init("KLjg3n2MInRiFd6Wd");
+    console.log("EmailJS initialized");
+  }, []);
 
   // Generate time slots from 12 PM to 5 PM (hourly)
   const timeSlots = [
@@ -57,25 +65,250 @@ const AppointmentForm: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Appointment Data:', formData);
 
-    setIsSubmitted(true);
+    // Prevent double submission
+    if (isSending) {
+      console.log("Already sending, ignoring duplicate submission");
+      return;
+    }
 
-    // Reset form after 7 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        date: '',
-        timeSlot: '',
-        consultationType: '',
-        message: ''
-      });
-    }, 7000);
+    // Validate consultation type (custom field without HTML5 validation)
+    if (!formData.consultationType) {
+      alert("Please select a Consultation Mode (In-Person or Video Call)");
+      return;
+    }
+
+    setIsSending(true);
+    console.log("=== STARTING FORM SUBMISSION ===");
+    console.log("Form Data:", formData);
+
+    try {
+      const SERVICE_ID = 'service_amasahp';
+      const TEMPLATE_ID = 'template_43ybu0n';
+      const PUBLIC_KEY = 'KLjg3n2MInRiFd6Wd';
+
+      // Create HTML email template for DOCTOR
+      const doctorEmailHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #2563eb 0%, #9333ea 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+            .header h1 { margin: 0; font-size: 28px; }
+            .content { background: #f8fafc; padding: 30px; border-radius: 0 0 10px 10px; }
+            .info-section { background: white; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #2563eb; }
+            .info-label { font-weight: bold; color: #2563eb; margin-bottom: 5px; }
+            .info-value { color: #1e293b; font-size: 16px; margin-bottom: 15px; }
+            .footer { text-align: center; margin-top: 20px; color: #64748b; font-size: 14px; }
+            .badge { display: inline-block; background: #2563eb; color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-top: 10px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>🏥 New Appointment Booking</h1>
+              <p style="margin: 10px 0 0 0; opacity: 0.9;">You have received a new appointment request</p>
+            </div>
+            <div class="content">
+              <div class="info-section">
+                <div class="info-label">👤 Patient Name</div>
+                <div class="info-value">${formData.name}</div>
+                
+                <div class="info-label">📧 Email Address</div>
+                <div class="info-value">${formData.email}</div>
+                
+                <div class="info-label">📱 Phone Number</div>
+                <div class="info-value">${formData.phone}</div>
+              </div>
+
+              <div class="info-section">
+                <div class="info-label">📅 Appointment Date</div>
+                <div class="info-value">${formData.date}</div>
+                
+                <div class="info-label">🕐 Time Slot</div>
+                <div class="info-value">${formData.timeSlot}</div>
+                
+                <div class="info-label">💼 Consultation Type</div>
+                <div class="info-value">
+                  ${formData.consultationType === 'online' ? '🎥 Video Call (Online)' : '🏥 In-Person (Offline)'}
+                  <span class="badge">${formData.consultationType.toUpperCase()}</span>
+                </div>
+              </div>
+
+              ${formData.message ? `
+              <div class="info-section">
+                <div class="info-label">📝 Additional Notes / Symptoms</div>
+                <div class="info-value">${formData.message}</div>
+              </div>
+              ` : ''}
+
+              <div class="footer">
+                <p>This appointment request was submitted through your website booking form.</p>
+                <p>Please contact the patient to confirm the appointment.</p>
+              </div>
+            </div>
+          </div>
+        </body>
+        </html>
+      `;
+
+      // Create HTML email template for PATIENT
+      const patientEmailHTML = `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <style>
+            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+            .header h1 { margin: 0; font-size: 28px; }
+            .content { background: #f0fdf4; padding: 30px; border-radius: 0 0 10px 10px; }
+            .info-section { background: white; padding: 20px; margin: 15px 0; border-radius: 8px; border-left: 4px solid #10b981; }
+            .info-label { font-weight: bold; color: #059669; margin-bottom: 5px; }
+            .info-value { color: #1e293b; font-size: 16px; margin-bottom: 15px; }
+            .footer { text-align: center; margin-top: 20px; color: #64748b; font-size: 14px; }
+            .badge { display: inline-block; background: #10b981; color: white; padding: 5px 15px; border-radius: 20px; font-size: 12px; font-weight: bold; margin-top: 10px; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h1>✅ Appointment Confirmed!</h1>
+              <p style="margin: 10px 0 0 0; opacity: 0.9;">Thank you for booking with Dr. Arijit Sen</p>
+            </div>
+            <div class="content">
+              <div class="info-section">
+                <p style="font-size: 16px; color: #059669; margin-bottom: 20px;">
+                  Dear <strong>${formData.name}</strong>,
+                </p>
+                <p style="font-size: 14px; color: #1e293b; margin-bottom: 15px;">
+                  Your appointment request has been received successfully. Dr. Arijit Sen will review your booking and contact you shortly to confirm.
+                </p>
+              </div>
+
+              <div class="info-section">
+                <div class="info-label">📅 Appointment Details</div>
+                <div class="info-value">
+                  <strong>Date:</strong> ${formData.date}<br>
+                  <strong>Time:</strong> ${formData.timeSlot}<br>
+                  <strong>Type:</strong> ${formData.consultationType === 'online' ? '🎥 Video Call (Online)' : '🏥 In-Person (Offline)'}
+                  <span class="badge">${formData.consultationType.toUpperCase()}</span>
+                </div>
+              </div>
+
+              ${formData.message ? `
+              <div class="info-section">
+                <div class="info-label">📝 Your Notes</div>
+                <div class="info-value">${formData.message}</div>
+              </div>
+              ` : ''}
+
+              <div class="info-section">
+                <div class="info-label">📞 Need Help?</div>
+                <div class="info-value">
+                  For any questions or to reschedule, please contact:<br>
+                  <strong>WhatsApp:</strong> +91 8481939664<br>
+                  <strong>Email:</strong> koushikghosh6077@gmail.com
+                </div>
+              </div>
+
+              <div class="footer">
+                <p>We look forward to seeing you!</p>
+                <p style="font-size: 12px; color: #94a3b8;">This is an automated confirmation. Dr. Arijit will contact you to finalize the appointment.</p>
+              </div>
+            </div>
+          </div>
+        </body>
+        </html>
+      `;
+
+      // Send email to DOCTOR (both email addresses)
+      const doctorParams1 = {
+        to_name: 'Dr. Arijit Sen',
+        to_email: 'koushikghosh6077@gmail.com',
+        subject: `New Appointment: ${formData.name} - ${formData.date}`,
+        html_content: doctorEmailHTML,
+        message: `New appointment from ${formData.name}`
+      };
+
+      const doctorParams2 = {
+        to_name: 'Dr. Arijit Sen',
+        to_email: 'senarijitdoctor07@gmail.com',
+        subject: `New Appointment: ${formData.name} - ${formData.date}`,
+        html_content: doctorEmailHTML,
+        message: `New appointment from ${formData.name}`
+      };
+
+      console.log("Sending emails to doctor (both addresses)...");
+      const doctorResponse1 = await emailjs.send(SERVICE_ID, TEMPLATE_ID, doctorParams1, PUBLIC_KEY);
+      console.log("✅ Doctor email 1 sent:", doctorResponse1.status);
+
+      const doctorResponse2 = await emailjs.send(SERVICE_ID, TEMPLATE_ID, doctorParams2, PUBLIC_KEY);
+      console.log("✅ Doctor email 2 sent:", doctorResponse2.status);
+
+      // Send confirmation email to PATIENT
+      const patientParams = {
+        to_name: formData.name,
+        to_email: formData.email,
+        subject: `Appointment Confirmation - Dr. Arijit Sen`,
+        html_content: patientEmailHTML,
+        message: `Your appointment on ${formData.date} at ${formData.timeSlot} has been confirmed.`
+      };
+
+      console.log("Sending confirmation email to patient...");
+      const patientResponse = await emailjs.send(SERVICE_ID, TEMPLATE_ID, patientParams, PUBLIC_KEY);
+      console.log("✅ Patient email sent:", patientResponse.status);
+
+      if (doctorResponse1.status === 200 && doctorResponse2.status === 200 && patientResponse.status === 200) {
+        console.log("✅ All emails sent successfully!");
+        setIsSubmitted(true);
+
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          date: '',
+          timeSlot: '',
+          consultationType: '',
+          message: ''
+        });
+
+        // Hide success message after 7 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 7000);
+      }
+
+    } catch (error: any) {
+      console.error("❌ SUBMISSION FAILED:", error);
+
+      let errorMessage = "Unknown error occurred";
+
+      try {
+        if (error?.text) {
+          errorMessage = error.text;
+        } else if (error?.message) {
+          errorMessage = error.message;
+        } else if (typeof error === 'string') {
+          errorMessage = error;
+        } else {
+          errorMessage = JSON.stringify(error);
+        }
+      } catch (stringifyError) {
+        errorMessage = "Error details unavailable";
+      }
+
+      console.error("Error details:", errorMessage);
+      alert(`❌ Submission Failed!\n\nError: ${errorMessage}\n\nPlease check:\n1. Your internet connection\n2. EmailJS configuration\n3. Browser console for details`);
+    } finally {
+      setIsSending(false);
+      console.log("=== SUBMISSION COMPLETE ===");
+    }
   };
 
   return (
@@ -104,7 +337,7 @@ const AppointmentForm: React.FC = () => {
                 </motion.div>
                 <div>
                   <h3 className="text-3xl font-black mb-2 tracking-tight">Appointment Confirmed!</h3>
-                  <p className="text-green-50 text-lg">We've received your booking request. Dr. Arijit will contact you shortly to confirm.</p>
+                  <p className="text-green-50 text-lg">We've received your booking request. Dr. Arijit will contact you shortly via email.</p>
                 </div>
               </div>
             </motion.div>
@@ -165,7 +398,7 @@ const AppointmentForm: React.FC = () => {
               >
                 <iframe
                   title="Clinic Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14721.493774618774!2d88.31828854442125!3d22.751493433589417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f8983e29f03677%3A0x640b72c918ee770c!2sSerampore%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1711200000000!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.6087449891634!2d88.38965597516908!3d22.56461037952082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0277a9b3c3c3c3%3A0x3c3c3c3c3c3c3c3c!2sKolkata%2C%20West%20Bengal!5e0!3m2!1sen!2sin!4v1737279000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -200,7 +433,7 @@ const AppointmentForm: React.FC = () => {
             </div>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8">
+            <form ref={formRef} onSubmit={handleSubmit} className="p-6 sm:p-10 space-y-8">
               {/* Name */}
               <div className="space-y-3">
                 <label className="text-sm font-black text-slate-700 dark:text-slate-300 uppercase tracking-widest flex items-center gap-2">
@@ -312,6 +545,24 @@ const AppointmentForm: React.FC = () => {
                     </button>
                   ))}
                 </div>
+
+                {/* Video Consultation Notice */}
+                {formData.consultationType === 'online' && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-3 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 dark:border-blue-400 rounded-lg"
+                  >
+                    <p className="text-sm font-bold text-blue-900 dark:text-blue-100 mb-2">
+                      📹 Video Consultation Guidelines:
+                    </p>
+                    <ul className="text-xs text-blue-800 dark:text-blue-200 space-y-1">
+                      <li>• Available 7 days a week - Book 24 hours in advance</li>
+                      <li>• For emergency consultations within 24 hours: <a href="https://wa.me/918481939664" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-600">WhatsApp directly</a></li>
+                    </ul>
+                  </motion.div>
+                )}
               </div>
 
               {/* Message */}
@@ -335,9 +586,17 @@ const AppointmentForm: React.FC = () => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="submit"
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-600 dark:to-purple-700 hover:from-blue-700 hover:to-purple-800 text-white font-black py-5 px-8 rounded-3xl transition-all shadow-2xl hover:shadow-[0_20px_40px_rgba(37,99,235,0.4)] text-lg uppercase tracking-[0.2em]"
+                disabled={isSending}
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-600 dark:to-purple-700 hover:from-blue-700 hover:to-purple-800 text-white font-black py-5 px-8 rounded-3xl transition-all shadow-2xl hover:shadow-[0_20px_40px_rgba(37,99,235,0.4)] text-lg uppercase tracking-[0.2em] flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Confirm Appointment
+                {isSending ? (
+                  <>
+                    <Loader2 className="w-6 h-6 animate-spin" />
+                    Processing...
+                  </>
+                ) : (
+                  'Confirm Appointment'
+                )}
               </motion.button>
             </form>
           </motion.div>

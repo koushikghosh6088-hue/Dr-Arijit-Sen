@@ -148,25 +148,6 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
               <Search className="w-5 h-5" />
             </button>
 
-            {isLoggedIn ? (
-              <button
-                onClick={onDashboardClick}
-                className={`flex items-center gap-2 font-black text-[10px] uppercase tracking-widest transition-colors duration-500 ${scrolled ? 'text-slate-900 dark:text-white hover:text-blue-600' : 'text-white hover:text-blue-200'}`}
-              >
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-500 ${scrolled ? 'bg-blue-100 dark:bg-slate-800' : 'bg-white/20'}`}>
-                  <User className={`w-4 h-4 ${scrolled ? 'text-blue-600' : 'text-white'}`} />
-                </div>
-                Portal
-              </button>
-            ) : (
-              <button
-                onClick={onLoginClick}
-                className={`font-black text-[10px] tracking-widest uppercase transition-colors duration-500 ${scrolled ? 'text-slate-900 dark:text-white hover:text-blue-600' : 'text-white hover:text-blue-200'}`}
-              >
-                Sign In
-              </button>
-            )}
-
             <a
               href="#appointment"
               onClick={(e) => handleScroll(e, '#appointment')}
@@ -221,22 +202,6 @@ const Navbar: React.FC<NavbarProps> = ({ onLoginClick, isLoggedIn, onDashboardCl
                   </a>
                 ))}
               </div>
-
-              {!isLoggedIn ? (
-                <button
-                  onClick={() => { setIsOpen(false); onLoginClick(); }}
-                  className="w-full flex items-center justify-center gap-3 p-5 bg-slate-100 dark:bg-slate-800 rounded-2xl text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-widest"
-                >
-                  <User className="w-4 h-4" /> Sign In to Portal
-                </button>
-              ) : (
-                <button
-                  onClick={() => { setIsOpen(false); onDashboardClick(); }}
-                  className="w-full flex items-center justify-center gap-3 p-5 bg-blue-50 dark:bg-blue-900/20 rounded-2xl text-[10px] font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest"
-                >
-                  <User className="w-4 h-4" /> Go to Dashboard
-                </button>
-              )}
 
               <a
                 href="#appointment"

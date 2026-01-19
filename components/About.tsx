@@ -110,7 +110,7 @@ const About: React.FC = () => {
               <motion.a
                 whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(37, 99, 235, 0.3)" }}
                 whileTap={{ scale: 0.98 }}
-                href="https://wa.me/917003383676"
+                href="https://wa.me/918481939664"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto bg-blue-600 dark:bg-blue-500 hover:bg-blue-500 dark:hover:bg-blue-400 text-white font-bold py-3.5 px-6 sm:px-8 rounded-2xl flex items-center justify-center gap-3 transition-all text-xs sm:text-sm"
@@ -126,6 +126,20 @@ const About: React.FC = () => {
                 VIDEO CALL <Video className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </motion.button>
             </div>
+
+            {/* Video Consultation Notice */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-600 dark:border-blue-400 rounded-lg"
+            >
+              <p className="text-xs font-bold text-blue-900 dark:text-blue-100 mb-1.5">
+                📹 Video Consultation: Available 7 days/week
+              </p>
+              <p className="text-xs text-blue-800 dark:text-blue-200">
+                Book 24 hours in advance • For emergencies within 24 hours: <a href="https://wa.me/918481939664" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-600">WhatsApp directly</a>
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>
